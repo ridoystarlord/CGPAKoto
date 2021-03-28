@@ -1,6 +1,7 @@
 package com.ridoy.cgpakoto.Fragments;
 
 import android.app.Dialog;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -42,6 +43,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentHomeBinding=FragmentHomeBinding.inflate(inflater,container,false);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRetainInstance(true);
         repository= new GradeRepository(getActivity().getApplication());
 
         semesterList=new ArrayList<>();

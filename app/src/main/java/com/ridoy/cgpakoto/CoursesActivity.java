@@ -53,6 +53,21 @@ public class CoursesActivity extends AppCompatActivity {
         activityCoursesBinding.addCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (activityCoursesBinding.courseCreditET.getText().toString().isEmpty()) {
+                    activityCoursesBinding.courseCreditET.setError("Course Credit Required");
+                    activityCoursesBinding.courseCreditET.requestFocus();
+                    return;
+                }
+                if (activityCoursesBinding.courseSGPAET.getText().toString().isEmpty()) {
+                    activityCoursesBinding.courseSGPAET.setError("Course SGPA Required");
+                    activityCoursesBinding.courseSGPAET.requestFocus();
+                    return;
+                }
+                if (activityCoursesBinding.courseNameET.getText().toString().isEmpty()) {
+                    activityCoursesBinding.courseNameET.setError("Course Name Required");
+                    activityCoursesBinding.courseNameET.requestFocus();
+                    return;
+                }
                 calculateCGPA(activityCoursesBinding.courseCreditET.getText().toString(),
                         activityCoursesBinding.courseSGPAET.getText().toString());
             }
